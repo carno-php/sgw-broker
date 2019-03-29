@@ -3,9 +3,7 @@
   "license": "MIT",
   "require": {
     "carno-php/consul": "^1.0",
-    "carno-php/devops": "^1.0",
     "carno-php/hrpcc": "^1.0",
-    "carno-php/hrpca": "^1.0",
     "carno-php/web": "^1.0"
   },
   "autoload": {
