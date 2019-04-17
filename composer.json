@@ -3,6 +3,7 @@
   "license": "MIT",
   "require": {
     "carno-php/consul": "^1.0",
+    "carno-php/timer": "^1.0",
     "carno-php/hrpcc": "^1.0",
     "carno-php/web": "^1.0"
   },
@@ -11,5 +12,10 @@
       "Carno\\Gateway\\Broker\\": "src"
     },
     "files": [".init.php"]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Carno\\Gateway\\Broker\\Tests\\": "tests"
+    }
   }
 }

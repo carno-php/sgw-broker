@@ -19,7 +19,6 @@ use Closure;
 class Client
 {
     /**
-     * @inject
      * @var Cluster
      */
     private $cluster = null;
@@ -35,10 +34,12 @@ class Client
     private $instances = [];
 
     /**
-     * ServicesClient constructor.
+     * Client constructor.
+     * @param Cluster $cluster
      */
-    public function __construct()
+    public function __construct(Cluster $cluster)
     {
+        $this->cluster = $cluster;
         $this->invoker = RPClient::layers()->handler();
     }
 
@@ -59,9 +60,9 @@ class Client
             }
         }
 
-        foreach ($local as $service) {
-            $this->cluster->leaving($service);
-            unset($this->instances[$service]);
+        foreach ($local as $named) {
+            $this->cluster->leaving($named);
+            unset($this->instances[$named]);
         }
     }
 
